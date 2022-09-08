@@ -1,5 +1,5 @@
 import { ICurrencyObject } from '../../types';
 
-export interface HeaderProps {
+export interface InfoPanelProps {
   currencies: ICurrencyObject | null;
 }

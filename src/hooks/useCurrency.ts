@@ -6,7 +6,7 @@ import { ICurrencyObject } from './../types/data';
 
 export function useCurrency() {
   const [currencies, setCurrencies] = useState<ICurrencyObject | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
 
   async function getCurrencies() {
