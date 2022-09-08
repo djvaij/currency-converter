@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 
-export interface ConverterBlockProps {
+export interface CurrencySelectProps {
   activeCurrency: string;
   onChangeCurrency: Dispatch<SetStateAction<string>>;
 }

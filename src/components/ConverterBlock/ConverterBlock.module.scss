@@ -1,3 +1,16 @@
 .container {
-  
+  padding: 30px 40px;
+  border-radius: 4px;
+  margin: 0 25px;
+  box-shadow: 0 5px 25px -4px black;
+  background-color: var(--color-dark-light);
+}
+
+.input {
+  border: 1px solid purple;
+  background-color: #444444;
+  color: var(--color-white);
+  outline: none;
+  padding: 10px 20px;
+  font-size: 24px;
 }
