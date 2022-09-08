@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCurrency } from './hooks/useCurrency';
-import { InfoPanel } from './components';
-import { Header } from './layout/Header/Header';
+import { ConverterBlock, InfoPanel } from './components';
+import { Header } from './layout';
+import { Main } from './layout';
 
 function App() {
+  const [fromCurrency, setFromCurrency] = useState('UAH');
+  const [toCurrency, setToCurrency] = useState('USD');
+
   const { currencies, error, loading } = useCurrency();
 
   return (
@@ -11,6 +15,10 @@ function App() {
       <Header>
         <InfoPanel currencies={currencies} />
       </Header>
+      <Main>
+        <ConverterBlock currency={fromCurrency} onChangeCurrency={setFromCurrency} />
+        <ConverterBlock currency={toCurrency} onChangeCurrency={setToCurrency} />
+      </Main>
     </div>
   );
 }

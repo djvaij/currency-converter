@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  border: 1px solid purple;
+  border-radius: 4px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-right: 1px solid purple;
+  font-size: 16px;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+.chevronDown {
+  padding: 10px 10px;
+  border-right: none;
+  cursor: default;
+}
+
+.chevronDownSvg {
+  width: 16px;
+  height: 16px;
+  fill: var(--color-white);
+}

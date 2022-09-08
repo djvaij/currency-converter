@@ -1,5 +1,9 @@
 @import-normalize;
 
+:root {
+  --color-white: #eeeeee;
+}
+
 * {
   box-sizing: border-box;
 }

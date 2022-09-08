@@ -1,0 +1,1 @@
+export const DEFAULT_CURRENCIES = ['USD', 'EUR', 'UAH'];
