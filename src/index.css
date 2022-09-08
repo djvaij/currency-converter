@@ -1,3 +1,5 @@
+@import-normalize;
+
 * {
   box-sizing: border-box;
 }
@@ -9,6 +11,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #222222;
+  color: #eeeeee;
 }
 
 code {

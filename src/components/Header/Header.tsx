@@ -11,6 +11,8 @@ const Loader: FunctionComponent = () => (
 );
 
 const Content: FunctionComponent<HeaderProps> = ({currencies}) => {
+  if (!currencies) return null;
+
   const {USD, EUR} = currencies;
 
   return (

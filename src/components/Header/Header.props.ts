@@ -1,14 +1,5 @@
-interface CurrenciesObject {
-  txt: string;
-  rate: number;
-  cc: string;
-  exchangedate: string;
-}
-
-interface CurrenciesObjects {
-  [code: string]: CurrenciesObject
-}
+import { ICurrencyObject } from '../../types';
 
 export interface HeaderProps {
-  currencies: CurrenciesObjects;
+  currencies: ICurrencyObject | null;
 }
