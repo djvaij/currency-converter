@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import { CurrencyInfoProps } from './CurrencyInfo.props';
 import styles from './CurrencyInfo.module.scss';
 
-export const CurrencyInfo: FunctionComponent<CurrencyInfoProps> = ({
+export const CurrencyInfo: FC<CurrencyInfoProps> = ({
   rate,
   icon,
   text

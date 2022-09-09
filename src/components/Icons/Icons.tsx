@@ -1,6 +1,7 @@
+import React, { FC } from 'react';
 import { IconsProps } from './Icons.props';
 
-export const DollarSign = ({size, color, classNames}: IconsProps) => (
+export const DollarSign: FC<IconsProps> = ({size, color, classNames}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 320 512"
@@ -13,7 +14,7 @@ export const DollarSign = ({size, color, classNames}: IconsProps) => (
   </svg>
 );
 
-export const EuroSign = ({size, color, classNames}: IconsProps) => (
+export const EuroSign: FC<IconsProps> = ({size, color, classNames}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 320 512"
@@ -26,7 +27,7 @@ export const EuroSign = ({size, color, classNames}: IconsProps) => (
   </svg>
 );
 
-export const MoneyTransferIcon = ({size, color, classNames}: IconsProps) => (
+export const MoneyTransferIcon: FC<IconsProps> = ({size, color, classNames}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 640 512"
