@@ -3,9 +3,10 @@ import { useCurrency } from "./hooks/useCurrency";
 import { ConverterBlock, InfoPanel, MoneyTransferIcon } from "./components";
 import { Header } from "./layout";
 import { Main } from "./layout";
+import { ErrorMessage } from './components/ErrorMessage/ErrorMessage';
 
 function App() {
-  const { rates, error, loading } = useCurrency();
+  const { rates, error } = useCurrency();
 
   const [fromCurrency, setFromCurrency] = useState("USD");
   const [toCurrency, setToCurrency] = useState("UAH");
@@ -59,6 +60,7 @@ function App() {
       <Header>
         <InfoPanel rates={rates} />
       </Header>
+      {error && <ErrorMessage error={error} />}
       <Main>
         <ConverterBlock
           inputValue={fromPrice}
