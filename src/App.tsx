@@ -1,44 +1,48 @@
-import React, { useEffect, useState } from 'react';
-import { useCurrency } from './hooks/useCurrency';
-import { ConverterBlock, InfoPanel, MoneyTransferIcon } from './components';
-import { Header } from './layout';
-import { Main } from './layout';
+import React, { useEffect, useState } from "react";
+import { useCurrency } from "./hooks/useCurrency";
+import { ConverterBlock, InfoPanel, MoneyTransferIcon } from "./components";
+import { Header } from "./layout";
+import { Main } from "./layout";
 
 function App() {
   const { rates, error, loading } = useCurrency();
 
-  const [fromCurrency, setFromCurrency] = useState('USD');
-  const [toCurrency, setToCurrency] = useState('UAH');
-  const [fromPrice, setFromPrice] = useState<string>('0');
-  const [toPrice, setToPrice] = useState<string>('0');
+  const [fromCurrency, setFromCurrency] = useState("USD");
+  const [toCurrency, setToCurrency] = useState("UAH");
+  const [fromPrice, setFromPrice] = useState<string>("0");
+  const [toPrice, setToPrice] = useState<string>("0");
 
   const onChangeFromPrice = (value: string) => {
     if (!rates) return;
 
-    if (value === '') {
+    if (value === "") {
       setFromPrice(value);
-      setToPrice('0');
+      setToPrice("0");
       return;
     }
 
-    setFromPrice(value);
     const price = parseFloat(value) / rates[fromCurrency];
-    const result = price * rates[toCurrency];
-    // setFromPrice(value);
-    setToPrice((Math.round(result * 100) / 100).toString());
+    const fullResult = price * rates[toCurrency];
+    const roundedResult = (Math.round(fullResult * 100) / 100).toString();
+
+    setFromPrice(value);
+    setToPrice(roundedResult);
   };
 
   const onChangeToPrice = (value: string) => {
     if (!rates) return;
 
-    if (value === '') {
-      setFromPrice('0');
+    if (value === "") {
+      setFromPrice("0");
       setToPrice(value);
       return;
     }
 
-    const result = (rates[fromCurrency] / rates[toCurrency]) * parseFloat(value);
-    setFromPrice((Math.round(result * 100) / 100).toString());
+    const fullResult =
+      (rates[fromCurrency] / rates[toCurrency]) * parseFloat(value);
+    const roundedResult = (Math.round(fullResult * 100) / 100).toString();
+
+    setFromPrice(roundedResult);
     setToPrice(value);
   };
 
