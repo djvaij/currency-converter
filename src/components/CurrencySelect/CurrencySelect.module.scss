@@ -19,12 +19,17 @@
   font-size: 16px;
   line-height: 16px;
   cursor: pointer;
+
+  &:hover {
+    background-color: rgba(purple, 0.1);
+  }
 }
 
 .chevronDown {
   padding: 10px 10px;
   border-right: none;
   cursor: default;
+  pointer-events: none;
 }
 
 .chevronDownSvg {

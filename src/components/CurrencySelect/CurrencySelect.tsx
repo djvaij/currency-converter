@@ -5,12 +5,21 @@ import classNames from 'classnames';
 import { CurrencySelectProps } from './CurrencySelect.props';
 
 export const CurrencySelect: FunctionComponent<CurrencySelectProps> = ({activeCurrency, onChangeCurrency}) => {
-  console.log(activeCurrency);
+
+  const onClickHandler = (e: any) => {
+    const code = e.currentTarget.getAttribute('data-code').toUpperCase();
+    onChangeCurrency(code);
+  };
 
   return (
     <ul className={styles.container}>
       {DEFAULT_CURRENCIES.map(item => (
-        <li className={classNames(styles.item, {[styles.active]: activeCurrency === item})} key={item}>
+        <li
+          className={classNames(styles.item, {[styles.active]: activeCurrency === item})}
+          key={item}
+          data-code={item}
+          onClick={onClickHandler}
+        >
           {item}
         </li>
       ))}

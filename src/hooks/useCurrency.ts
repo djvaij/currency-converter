@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import { fetchCurrency } from '../api/currency';
-import { ICurrencyItem } from './../types';
-import { formatCurrency } from './../utils/formateCurrency';
+import { ICurrencyResponse } from './../types';
 import { ICurrencyObject } from './../types/data';
 
 export function useCurrency() {
-  const [currencies, setCurrencies] = useState<ICurrencyObject | null>(null);
+  const [rates, setCurrencies] = useState<ICurrencyObject | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
 
@@ -13,9 +12,10 @@ export function useCurrency() {
     try {
       setError('');
       setLoading(true);
-      const data: ICurrencyItem[] = await fetchCurrency();
-      const formattedData: ICurrencyObject = formatCurrency(data);
-      setCurrencies(formattedData);
+      const data: ICurrencyResponse = await fetchCurrency();
+      const result = { ...data.rates, 'USD': 1 };
+      console.log(result);
+      setCurrencies(result);
       setLoading(false);
     } catch (error: any) {
       setLoading(false);
@@ -27,6 +27,6 @@ export function useCurrency() {
     getCurrencies();
   }, []);
 
-  return { currencies, loading, error };
+  return { rates, loading, error };
 
 }
